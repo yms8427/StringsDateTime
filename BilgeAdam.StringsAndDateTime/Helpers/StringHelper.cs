@@ -1,9 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 
 namespace BilgeAdam.StringsAndDateTime.Helpers
 {
@@ -65,6 +63,56 @@ namespace BilgeAdam.StringsAndDateTime.Helpers
                 }
             }
             return "Error";
+        }
+        
+        public void StringOrder()
+        {
+            var sample = "Türkiye";
+            var r1 = sample.CompareTo("Almanya");
+            var r2 = sample.CompareTo("Yemen");
+            var r3 = sample.CompareTo("Türkiye");
+        }
+
+        public void SubString(string text)
+        {
+            var cropped1 = text.Substring(5);
+            var cropped2 = text.Substring(5, 10);
+            var path = @"C:\Program Files\Windows Photo Viewer\acq.dll";
+            var name = path.Substring(path.LastIndexOf(@"\") + 1);
+            var url = "https://www.canperk.com/main/photos";
+            var indexOfFirstDivider = url.IndexOf('/', 8);
+            var start = 8;
+            var site = url.Substring(start, indexOfFirstDivider - start);
+
+            //TO BE CONTINUED
+            var f = new FileInfo(path);
+            var fName = f.Name;
+
+            var u = new Uri(url);
+            var siteName = u.Authority;
+        }
+
+        public void Trim()
+        {
+            var list = new List<string>();
+            AddIfNotExists(list, "Can");
+            AddIfNotExists(list, " Can");
+            AddIfNotExists(list, "Can ");
+            AddIfNotExists(list, "   Can");
+            AddIfNotExists(list, "Can     ");
+            AddIfNotExists(list, "    Can     ");
+            AddIfNotExists(list, "  Can   ");
+            AddIfNotExists(list, "               Can");
+            var result = list.Count;
+        }
+
+        private void AddIfNotExists(List<string> list, string value)
+        {
+            var trimmed = value.Trim();
+            if (!list.Contains(trimmed))
+            {
+                list.Add(trimmed);
+            }
         }
     }
 }
