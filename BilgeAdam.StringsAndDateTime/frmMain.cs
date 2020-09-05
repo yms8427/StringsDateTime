@@ -33,6 +33,9 @@ namespace BilgeAdam.StringsAndDateTime
             txtIndex.Text = stHelper.GetIndex(txtInputString.Text, 'a');
             txtWordCount.Text = stHelper.GetWordCount(txtInputString.Text);
             txtCustomMath.Text = stHelper.GetCustomCalculation(txtCustomMath.Text);
+            stHelper.StringOrder();
+            stHelper.SubString(txtInputString.Text);
+            stHelper.Trim();
         }
 
         private void SetDateTime()
